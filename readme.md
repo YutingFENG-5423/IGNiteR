@@ -15,12 +15,14 @@ Files description
   
 - 'InfluenceGraph.py'
     - behaviour-driven Influence Graph Neural Network for node embedding
+
+- 'weibo4IGNiteR.py'
+    - Data processing
     
 - 'IGNiteR.py'
     - IGNiteR recommendation model
     
 - 'utils.py'
-    - evaluation metrics and data storing/loading.
 
 > Note: The original weibo dataset is available at [sina weibo](https://www.aminer.org/influencelocality).
 
