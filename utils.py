@@ -2,6 +2,15 @@
 import numpy as np
 import pickle
 
+
+def save_pkl(pkl_name, *args):
+    with open(pkl_name + '.pkl', 'wb') as f:
+        pickle.dump([arg for arg in args], f, pickle.HIGHEST_PROTOCOL)
+
+def load_pkl(pkl_name):
+    with open(pkl_name, 'rb') as f:
+        return pickle.load(f)
+
 def dcg_score(y_true, y_score, k=10):
     order = np.argsort(y_score)[::-1]
     y_true = np.take(y_true, order[:k])
@@ -21,7 +30,3 @@ def mrr_score(y_true, y_score):
     y_true = np.take(y_true, order)
     rr_score = y_true / (np.arange(len(y_true)) + 1)
     return np.sum(rr_score) / np.sum(y_true)
-
-def load_pkl(pkl_name):
-    with open(pkl_name, 'rb') as f:
-        return pickle.load(f)
