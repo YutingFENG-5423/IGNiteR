@@ -9,7 +9,7 @@ from utils import dcg_score,ndcg_score,mrr_score, load_pkl
 from sklearn.metrics import roc_auc_score,f1_score
 
 
-max_words_length = 10
+max_words_length = 20
 max_nodes_length = 30
 max_adopt_length = 120
 dict_length = 7275
