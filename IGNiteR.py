@@ -23,7 +23,7 @@ n_candidates = 5
 
 news_words,embedding_mat,node_embedding_mat,\
 all_user_pos,all_user_pos_nodes,all_user_pos_adopt,all_train_pn,all_train_nodes,all_train_adopt,all_label,all_train_id,\
-all_test_user_pos,all_test_user_pos_nodes,all_test_user_pos_adopt,all_test_pn,all_test_nodes,all_test_adopt,all_test_label,all_test_id, all_test_index = load_pkl('/home/yuting/PycharmProjects/data_preprocessing/data_stat/weighted graph/data_T_3m_nb10_120.pkl')
+all_test_user_pos,all_test_user_pos_nodes,all_test_user_pos_adopt,all_test_pn,all_test_nodes,all_test_adopt,all_test_label,all_test_id, all_test_index = load_pkl('data/pkl/data_T_3m_nb10_120.pkl')
 
 
 title_input = keras.Input(shape=(max_words_length,), dtype='int32')
@@ -162,12 +162,12 @@ def generate_batch_data_test(all_test_pn, all_test_nodes, all_test_adopt, all_la
 
 
 results = []
-batch_size = 100
+batch_size = 500
 
-for ep in range(3):
-    traingen = generate_batch_data_train(all_train_pn, all_train_nodes, all_train_adopt, all_label, all_train_id, batch_size)
+for ep in range(1):
+    traingen = generate_batch_data_train(all_train_pn, all_train_nodes, all_train_adopt, all_label, batch_size)
     model.fit_generator(traingen, epochs=1, steps_per_epoch=len(all_train_id) // batch_size)
-    testgen = generate_batch_data_test(all_test_pn, all_test_nodes, all_test_adopt, all_test_label, all_test_id, batch_size)
+    testgen = generate_batch_data_test(all_test_pn, all_test_nodes, all_test_adopt, all_test_label, batch_size)
     click_score = model_test.predict_generator(testgen, steps=len(all_test_id) // batch_size, verbose=1)
 
 

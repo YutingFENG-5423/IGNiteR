@@ -32,7 +32,7 @@ def get_nodes_dict(filname):
     return dict_in,dict_out
 
 
-filename = 'home/InflenceGraph/data/weibo'
+filename = 'data/'
 dict_in, dict_out = get_nodes_dict(filename)
 
 vocabulary_size = len(dict_in)
