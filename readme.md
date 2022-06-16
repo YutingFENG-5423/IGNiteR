@@ -12,7 +12,10 @@ How the news is obtained from social media
 
 For the execution of the news recommendation program, please first generate the node embeddings of users from influence graph, and integrate node embeddings 
 with the recommendation data for user representation with weibo4IGNiteR.ipynb. All the original data needed in the notebook is available at [sina weibo](https://www.aminer.org/influencelocality).
-In 'news_crawler', a script is given to crawl the news title and news content through the link provided in sina weibo root_content.txt.
+In 'news_crawler', a script is given to crawl the news title and news content through the link provided in sina weibo root_content.txt, to generate root_titles.csv.
+A sample data of root_titles is given in the file.
+
+The word embedding is from the open project [github-word-vectors](https://github.com/Embedding/Chinese-Word-Vectors), sina weibo word2vec 300d.
 
 
 Files description
